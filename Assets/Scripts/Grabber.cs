@@ -47,9 +47,9 @@ public class Grabber : MonoBehaviour
             }
         }
         _lColliding = Physics.OverlapSphere(LHandPos.position, _GrabRadius);
-        foreach (Collider item in _rColliding)
+        foreach (Collider item in _lColliding)
         {
-            if (item.CompareTag("Grabbable"))
+            if (item.CompareTag("Grabbable")&&(leftTrigger > .2f||leftGrip > .2f))
             {
                 item.gameObject.transform.position = LHandPos.position;
             }
