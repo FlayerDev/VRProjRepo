@@ -30,7 +30,7 @@ public class OVRHeadsetEmulator : MonoBehaviour {
 	public bool resetHmdPoseOnRelease = true;
 	public bool resetHmdPoseByMiddleMouseButton = true;
 
-	public KeyCode[] activateKeys = new KeyCode[] { KeyCode.LeftControl, KeyCode.RightControl };
+	public KeyCode[] activateKeys = new KeyCode[] { KeyCode.LeftControl, KeyCode.RightControl };//
 
 	public KeyCode[] pitchKeys = new KeyCode[] { KeyCode.LeftAlt, KeyCode.RightAlt };
 
