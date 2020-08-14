@@ -41,7 +41,7 @@ public class Grabber : MonoBehaviour
         _rColliding = Physics.OverlapSphere(RHandPos.position, _GrabRadius);
         foreach (Collider item in _rColliding)
         {
-            if (item.CompareTag("Grabbable"))
+            if (item.CompareTag("Grabbable") && (rightTrigger > .2f || rightGrip > .2f))
             {
                 item.gameObject.transform.position = RHandPos.position;
             }
