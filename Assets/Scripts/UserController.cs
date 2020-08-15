@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngineInternal;
 
-public class Grabber : MonoBehaviour
+public class UserController : MonoBehaviour
 {
     public List<InputDevice> devicesR;
     public List<InputDevice> devicesL;
@@ -18,7 +18,7 @@ public class Grabber : MonoBehaviour
     public Collider[] _rColliding;
     public Collider[] _lColliding;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         devicesR = new List<InputDevice>();
@@ -31,7 +31,6 @@ public class Grabber : MonoBehaviour
         LDev = devicesL[0]; 
     }
 
-    // Update is called once per frame
     void Update()
     {
         RDev.TryGetFeatureValue(CommonUsages.trigger, out float rightTrigger);
@@ -41,7 +40,7 @@ public class Grabber : MonoBehaviour
         _rColliding = Physics.OverlapSphere(RHandPos.position, _GrabRadius);
         foreach (Collider item in _rColliding)
         {
-            if (item.CompareTag("Grabbable") && (rightTrigger > .2f || rightGrip > .2f))
+            if (item.CompareTag("Grabbable") && (rightTrigger > .3f || rightGrip > .3f))
             {
                 item.gameObject.transform.position = RHandPos.position;
             }
@@ -49,7 +48,7 @@ public class Grabber : MonoBehaviour
         _lColliding = Physics.OverlapSphere(LHandPos.position, _GrabRadius);
         foreach (Collider item in _lColliding)
         {
-            if (item.CompareTag("Grabbable")&&(leftTrigger > .2f||leftGrip > .2f))
+            if (item.CompareTag("Grabbable")&&(leftTrigger > .3f||leftGrip > .3f))
             {
                 item.gameObject.transform.position = LHandPos.position;
             }
